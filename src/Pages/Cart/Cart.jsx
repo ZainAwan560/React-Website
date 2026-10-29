@@ -25,7 +25,16 @@ const Cart = () => {
       customerEmail,
       phone,
       address,
-      items: cart, 
+      items: cart.map(item => ({
+        id: item.id || item._id,
+        productId: item._id || item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        color: item.color || "Default",
+        size: item.size || "Standard",
+        image: item.image || ""
+      })), 
       totalAmount: total
     };
 
